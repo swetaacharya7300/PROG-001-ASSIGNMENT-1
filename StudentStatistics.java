@@ -68,6 +68,27 @@ public class StudentStatistics
         //display the highest and lowest marks
         System.out.println("Students'Highest Mark is: " + highestMark);
         System.out.println("Students' Lowest Mark is: " + lowestMark);
+        
+        //F6:Calculates the mean and standard deviation of the marks and print the result on the screen.
+        
+        double total = 0.0;
+        for (double mark : marks) {
+            total += mark;
+        }
+
+        double mean = total / marks.length;
+        System.out.printf("Mean Mark: %.2f\n", mean);
+
+        double sumOfSquaredDifferences = 0.0;
+        for (double mark : marks) {
+            double difference = mark - mean;
+            sumOfSquaredDifferences += difference * difference;
+        }
+
+        double variance = sumOfSquaredDifferences / marks.length;
+        double standardDeviation = Math.sqrt(variance);
+
+        System.out.printf("Standard Deviation: %.2f\n", standardDeviation);
     }
     
 }
